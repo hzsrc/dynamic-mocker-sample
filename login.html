@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dyn-mocker sample</title>
+    <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        function ajax(url, data, succ) {
+            $.ajax({
+                url: 'http://localhost:8085' + url,
+                data: JSON.stringify(data),
+                success: succ,
+                method: 'post',
+                contentType: 'application/json',
+                crossDomain: true,
+                xhrFields: {
+                    withCredentials: true
+                }
+            })
+        }
+
+        function login() {
+            ajax('/user/login', {account: 'hz', password: '123'}, function (res) {
+                if (res.status == 0)
+                    location = 'index.html'
+                else
+                    alert(res.msg)
+            })
+        }
+    </script>
+</head>
+<body>
+<button onclick="login()">Login</button>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "dyn-mock-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "mock": "node ./node_modules/dyn-mocker ./mock/mock-config.js",
+    "server": "./node_modules/.bin/http-server -p 8090"
+  },
+  "author": "HuangZheng",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "dyn-mocker": "^1.0.1",
+    "http-server": "^0.10.0"
+  }
+}
