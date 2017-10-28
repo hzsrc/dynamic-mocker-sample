@@ -22,15 +22,20 @@
             })
         }
 
-        function getData() {
+        function checkLogin() {
             ajax('/user/checkLogin', {}, function (res) {
                 if (res.status == 2)
                     location = 'login.html';
             });
-
+        }
+        function getData(){
             ajax('/getData', {}, function (res) {
                 document.getElementById('cnt').innerText = JSON.stringify(res,null ,4);
             })
+        }
+        function getProxy(){
+            var url = 'http://localhost:8085' + '/s?wd=dyn-mocker';
+            open(url)
         }
         function logout() {
             ajax('/user/logout', {}, function (res) {
@@ -40,7 +45,11 @@
     </script>
 </head>
 <body onload="getData()">
+<button onclick="getData()">GetJSON</button>
+<button onclick="getProxy()">Get from reverse proxy</button>
+
 <button onclick="logout()">Logout</button>
+
 <pre id="cnt"></pre>
 
 </body>
