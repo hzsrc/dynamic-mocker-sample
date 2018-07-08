@@ -9,10 +9,13 @@ const config = {
     },
     beforeResponse: function (respData, req) { //数据返回前的回调钩子，respData包含status、headers、body属性
         // For CORS
-        respData.headers["Access-Control-Allow-Origin"] = req.headers["origin"] || req.headers["Origin"];
-        respData.headers["Access-Control-Allow-Credentials"] = "true";
-        respData.headers["Access-Control-Allow-Headers"] = "Content-Type,Content-Length,Authorization,Access,X-Requested-With,your_http_header";
-        //respData.headers["Access-Control-Allow-Methods"] = "PUT,POST,GET,DELETE,PATCH,OPTIONS";
+        var origin = req.headers["origin"] || req.headers["Origin"]
+        if (origin) {
+            respData.headers["Access-Control-Allow-Origin"] = req.headers["origin"] || req.headers["Origin"];
+            respData.headers["Access-Control-Allow-Credentials"] = "true";
+            respData.headers["Access-Control-Allow-Headers"] = "Content-Type,Content-Length,Authorization,Access,X-Requested-With,your_http_header";
+            //respData.headers["Access-Control-Allow-Methods"] = "PUT,POST,GET,DELETE,PATCH,OPTIONS";
+        }
     }
 }
 module.exports = config;

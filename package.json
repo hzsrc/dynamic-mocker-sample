@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "mock": "node ./node_modules/dyn-mocker ./mock/mock-config.js",
-    "server": "./node_modules/.bin/http-server -p 8090"
+    "mock": "node ./mock/run.js"
   },
   "author": "HuangZheng",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "dyn-mocker": "^1.0.1",
+    "dynamic-mocker": "latest",
     "http-server": "^0.10.0"
   }
 }

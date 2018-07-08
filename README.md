@@ -1,5 +1,5 @@
-# dyn-mocker sample
-A sample for [dyn-mocker](https://github.com/hzsrc/dyn-mocker).
+# dynamic-mocker sample
+A sample for [dynamic-mocker](https://github.com/hzsrc/dynamic-mocker).
 
 # Usage
 
@@ -9,9 +9,8 @@ A sample for [dyn-mocker](https://github.com/hzsrc/dyn-mocker).
 	yarn install
 
 ## 2. run commands
-	npm run server
 	npm run mock
 
-## 3. go##
+## 3. go visit##
 [http://localhost:8090](http://localhost:8090)
 

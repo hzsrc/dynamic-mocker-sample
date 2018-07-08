@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>dyn-mocker sample</title>
+    <title>dynamic-mocker sample</title>
     <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
     <script>
         function ajax(url, data, succ) {
@@ -28,15 +28,18 @@
                     location = 'login.html';
             });
         }
-        function getData(){
-            ajax('/getData', {}, function (res) {
-                document.getElementById('cnt').innerText = JSON.stringify(res,null ,4);
+
+        function getData(delay) {
+            ajax('/getData', {delay: delay}, function (res) {
+                document.getElementById('cnt').innerText = JSON.stringify(res, null, 4);
             })
         }
-        function getProxy(){
-            var url = 'http://localhost:8085' + '/s?wd=dyn-mocker';
+
+        function getProxy() {
+            var url = 'http://localhost:8085' + '/s?wd=dynamic-mocker';
             open(url)
         }
+
         function logout() {
             ajax('/user/logout', {}, function (res) {
                 location = 'login.html';
@@ -46,6 +49,7 @@
 </head>
 <body onload="getData()">
 <button onclick="getData()">GetJSON</button>
+<button onclick="getData(1)">GetJSON delayed</button>
 <button onclick="getProxy()">Get from reverse proxy</button>
 
 <button onclick="logout()">Logout</button>
