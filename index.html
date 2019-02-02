@@ -30,6 +30,7 @@
         }
 
         function getData(delay) {
+            document.getElementById('cnt').innerText = 'loading...'
             ajax('/getData', {delay: delay}, function (res) {
                 document.getElementById('cnt').innerText = JSON.stringify(res, null, 4);
             })
@@ -54,6 +55,7 @@
 
 <button onclick="logout()">Logout</button>
 <a href="http://localhost:8085/download">download</a>
+<a href="http://localhost:8085/bin" target="_blank">Binary data</a>
 
 <pre id="cnt"></pre>
 

@@ -1,16 +1,18 @@
 {
   "name": "dyn-mock-sample",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "mock": "node ./mock/run.js"
+    "mock": "node ./mock/run.js",
+    "proxy80": "sudo node ./node_modules/dynamic-mocker/run ./mock/proxy80.js",
+    "proxy80-win": "node ./node_modules/dynamic-mocker/run ./mock/proxy80.js"
   },
   "author": "HuangZheng",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "dynamic-mocker": "latest",
-    "http-server": "^0.10.0"
+    "http-server": "^0.11.1"
   }
 }
